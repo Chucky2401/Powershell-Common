@@ -60,4 +60,6 @@ function Set-CustomAliases {
     function global:la {
         ll $(Set-Arguments -BaseArguments @("-a") -OtherArguments $args)
     }
+
+    Set-Alias -Name lg -Value lazygit -Scope Global
 }
