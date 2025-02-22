@@ -55,12 +55,13 @@ function Update-Eza {
     
     # Put your local variables here
     $ezaExeFolder       = "C:\Program Files\eza\"
-    $currentFileVersion     = (Get-ChildItem -Path $ezaExeFolder | Where-Object { $PSItem.Name -Match "^v" })
-    $currentFileVersionPath = $currentFileVersion.FullName
-    $currentVersion         = [Semver]($currentFileVersion.Name -replace "v", "")
-    $latestCheck            = [datetime]::Parse([System.Environment]::GetEnvironmentVariable("EZA_LATEST_CHECK", [System.EnvironmentVariableTarget]::User))
-    $tempDirectory          = New-TemporaryDirectory
-    
+    $currentVersion     = [Semver]"0.0.0"
+    $currentFileVersion = (Get-ChildItem -Path $ezaExeFolder | Where-Object { $PSItem.Name -Match "^v" })
+
+    if ($null -ne $currentFileVersion) {
+      $currentFileVersionPath = $currentFileVersion.FullName
+      $currentVersion         = [Semver]($currentFileVersion.Name -replace "v", "")
+    }
     # Eza from GitHub
     $ezaRelease           = Invoke-WebRequest -Method Get -Uri "https://api.github.com/repos/eza-community/eza/releases/latest"
     $ezaReleaseContent    = ($ezaRelease.Content | ConvertFrom-Json)
