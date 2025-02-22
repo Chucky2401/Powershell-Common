@@ -50,7 +50,7 @@ function Set-CustomAliases {
     function global:ls {
         Update-Eza
 
-        & 'C:\Program Files\eza\eza.exe' $(Set-Arguments -BaseArguments @("--group-directories-first") -OtherArguments $args)
+        & 'C:\Program Files\eza\eza.exe' $(Set-Arguments -BaseArguments @("--group-directories-first", "-l", "--no-filesize", "--icons=always", "--no-time", "--no-user", "--no-permissions") -OtherArguments $args)
     }
 
     function global:ll {
