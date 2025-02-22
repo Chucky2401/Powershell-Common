@@ -83,7 +83,9 @@ function Update-Eza {
     
     Write-Message -Type "INFO" -Message "Update eza from {0} to {1}..." -Variables $currentVersion, $ezaLatestVersion
     
-    Remove-Item -Path $currentFileVersionPath
+    if ($currentVersion -ne [Semver]"0.0.0") {
+      Remove-Item -Path $currentFileVersionPath
+    }
     
     Invoke-WebRequest -Uri $ezaLatestWindowsUrl -OutFile $ezaTempArchiveFile
     
