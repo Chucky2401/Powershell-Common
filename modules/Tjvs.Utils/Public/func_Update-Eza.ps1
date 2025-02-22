@@ -3,27 +3,23 @@
 function Update-Eza {
     <#
         .SYNOPSIS
-            Summary of the script
+            Install or Update Eza
         .DESCRIPTION
-            Script description
-        .PARAMETER param1
-            Parameter description
+            Let you install or update Eza in the Programs directory from GitHub only if new version
         .INPUTS
-            Pipeline input data
+            N/A
         .OUTPUTS
-            Output data
+            N/A
         .EXAMPLE
-            .\template.ps1 param1
+            Update-Eza
         .NOTES
-            Name           : Script-Name
+            Name           : Update-Eza
             Version        : 1.0.0
-            Created by     : {YOUR NAME}
+            Created by     : Chucky2401
             Date Created   : 04/01/2023
-            Modify by      : {YOUR NAME}
-            Date modified  : 04/01/2023
-            Change         : Creation
-        .LINK
-            http://github.com/UserName/RepoName
+            Modify by      : Chucky2401
+            Date modified  : 22/02/2025
+            Change         : Fix error if install for the first time
     #>
     
     #---------------------------------------------------------[Script Parameters]------------------------------------------------------
