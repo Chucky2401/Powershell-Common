@@ -5,9 +5,9 @@ function Write-CenterText {
         .DESCRIPTION
             This function takes care of displaying a message by centring it on the screen.
             It is also possible to add it to a log.
-        .PARAMETER sString
+        .PARAMETER String
             Character string to be centred on the screen
-        .PARAMETER sLogFile
+        .PARAMETER LogFile
             String indicating the location of the log file
         .EXAMPLE
             Write-CenterText "File Recovery..."
@@ -24,18 +24,18 @@ function Write-CenterText {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, Mandatory = $true)]
-        [string]$sString,
+        [string]$String,
         [Parameter(Position = 1, Mandatory = $false)]
-        [string]$sLogFile = $null
+        [string]$LogFile = $null
     )
     $nConsoleWidth    = (Get-Host).UI.RawUI.MaxWindowSize.Width
-    $nStringLength    = $sString.Length
+    $nStringLength    = $String.Length
     $nPaddingSize     = "{0:N0}" -f (($nConsoleWidth - $nStringLength) / 2)
     $nSizePaddingLeft = $nPaddingSize / 1 + $nStringLength
-    $sFinalString     = $sString.PadLeft($nSizePaddingLeft, " ").PadRight($nSizePaddingLeft, " ")
+    $sFinalString     = $String.PadLeft($nSizePaddingLeft, " ").PadRight($nSizePaddingLeft, " ")
 
     Write-Host $sFinalString
-    If ($null -ne $sLogFile) {
-        Write-Output $sFinalString >> $sLogFile
+    If ($null -ne $LogFile) {
+        Write-Output $sFinalString >> $LogFile
     }
 }
