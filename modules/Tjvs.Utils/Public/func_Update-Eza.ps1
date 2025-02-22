@@ -62,6 +62,8 @@ function Update-Eza {
       $currentFileVersionPath = $currentFileVersion.FullName
       $currentVersion         = [Semver]($currentFileVersion.Name -replace "v", "")
     }
+
+    $tempDirectory        = New-TemporaryDirectory
     # Eza from GitHub
     $ezaRelease           = Invoke-WebRequest -Method Get -Uri "https://api.github.com/repos/eza-community/eza/releases/latest"
     $ezaReleaseContent    = ($ezaRelease.Content | ConvertFrom-Json)
