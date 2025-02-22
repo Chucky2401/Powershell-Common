@@ -54,7 +54,7 @@ function Send-Email {
         [Parameter(Mandatory = $False, ParameterSetName = "Low")]
         [Parameter(Mandatory = $False, ParameterSetName = "High")]
         [Alias("d")]
-        [string]$DisplayName = "No Reply",
+        [string]$DisplayName = "",
         [Parameter(Mandatory = $False, ParameterSetName = "Normal")]
         [Parameter(Mandatory = $False, ParameterSetName = "Low")]
         [Parameter(Mandatory = $False, ParameterSetName = "High")]
