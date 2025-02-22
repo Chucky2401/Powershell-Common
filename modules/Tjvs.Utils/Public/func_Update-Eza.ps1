@@ -77,11 +77,6 @@ function Update-Eza {
     
     #-----------------------------------------------------------[Execution]------------------------------------------------------------
     
-    # Here start your code!
-    If ($latestCheck.AddDays(7) -gt (Get-Date)) {
-        return
-    }
-    
     If ($currentVersion -eq $ezaLatestVersion) {
         return
     }
