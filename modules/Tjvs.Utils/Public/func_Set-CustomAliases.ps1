@@ -58,7 +58,7 @@ function Set-CustomAliases {
 
         & 'C:\Program Files\eza\eza.exe'  $(Set-Arguments -BaseArguments @("--group-directories-first","--git", "-lgh", "--icons=always") -OtherArguments $args)
     }
-    
+
     function global:la {
         ll $(Set-Arguments -BaseArguments @("-a") -OtherArguments $args)
     }
