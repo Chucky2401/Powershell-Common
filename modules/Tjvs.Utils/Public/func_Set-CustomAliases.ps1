@@ -23,26 +23,26 @@ function Set-CustomAliases {
         .LINK
             http://github.com/UserName/RepoName
     #>
-    
+
     #---------------------------------------------------------[Script Parameters]------------------------------------------------------
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingCmdletAliases', 'ls', Justification = 'Avoid analyzer warning for custom function call')]
     [CmdletBinding()]
     Param (
         #Script parameters go here
     )
-    
+
     #---------------------------------------------------------[Initialisations]--------------------------------------------------------
-    
+
     #-----------------------------------------------------------[Functions]------------------------------------------------------------
-    
+
     # Function only needed in this script!
     # If your function need to be use on several scripts standalone, use a file in .\inc\functions\ and dot-sourced it
     # If your function need to be used in several scripts and used sub-functions, use module instead in .\inc\modules
-    
+
     #----------------------------------------------------------[Declarations]----------------------------------------------------------
-    
+
     # Put your local variables here
-    
+
     #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
     Remove-Alias -Name ls -Scope Global -Force
