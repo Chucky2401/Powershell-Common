@@ -34,7 +34,17 @@ function Update-Eza {
     )
     
     #---------------------------------------------------------[Initialisations]--------------------------------------------------------
-    
+
+    $latestCheck = Get-Date
+
+    if ((Test-Path env:EZA_LATEST_CHECK)) {
+      $latestCheck = [datetime]::Parse([System.Environment]::GetEnvironmentVariable("EZA_LATEST_CHECK", [System.EnvironmentVariableTarget]::User))
+    }
+
+    If ($latestCheck.AddDays(7) -gt (Get-Date)) {
+        return
+    }
+
     #-----------------------------------------------------------[Functions]------------------------------------------------------------
     
     # Function only needed in this script!
