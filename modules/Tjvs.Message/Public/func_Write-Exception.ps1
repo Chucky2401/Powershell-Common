@@ -1,44 +1,28 @@
 function Write-Exception {
     <#
         .SYNOPSIS
-            Displays a message
+            Print an formatted exception
         .DESCRIPTION
-            This function displays a message with a different colour depending on the type of message, and let you log it to a file.
-            It also displays the date and time at the beginning of the line, followed by the type of message in brackets.
-        .PARAMETER Type
-            Type de message :
-                INFO    : Informative message in blue
-                WARNING : Warning message in yellow
-                ERROR   : Error message in red
-                SUCCESS : Success message in green
-                DEBUG   : Debugging message in blue on black background
-                OTHER   : Informative message in blue but without the date and type at the beginning of the line
-        .PARAMETER Message
-            Message to be displayed
-        .PARAMETER Variables
-            If you message contains some placeholders (like: {0}, {1}, etc.) put in this parameter the variable to replace them
+            Pass an exception to this function to print it formatted. You can also send the exception to a LogFile
+            but you need to pass a ref to the file path.
+            If youre DebugPreference variable is set to Continue or Verbose is used, you will have
+            the StackTrace and the InvocationLine in the print.
+            If you use the LogOnly switch, nothing will be print to the screen.
+        .PARAMETER Exception
+            Exception to format
         .PARAMETER LogFile
-            String or variable reference indicating the location of the log file.
-            It is possible to send a variable of type Array() so that the function returns the string. See Example 3 for usage in this case.
+            Reference to the log file path.
+            The reference must be a path as a string.
+        .PARAMETER LogOnly
+            Send message only to log file and does not print anything to screen.
         .EXAMPLE
-            Write-Message "INFO" "File recovery..." ([ref]"C:\Temp\trace.log")
-
-            Show to the console "[19/04/2023 - 10:35:46] (INFO)    File recovery..."
-        .EXAMPLE
-            Write-Message "WARNING" "Process not found" -Logging -LogFile ([ref]"C:\Temp\trace.log")
-
-            Show to the console "[19/04/2023 - 10:35:46] (WARNING) Process not found" and write it to the file 'C:\Temp\trace.log'
-        .EXAMPLE
-            $bufferLog = @()
-            Write-Message "WARNING" "Processus introuvable" ([ref]bufferLog)
-
-            Show to the console "[19/04/2023 - 10:35:46] (WARNING) Processus introuvable" and store it to the array $bufferLog
+            Write-Exception -Exception $PSItem -LogFile ([ref]"path\to\file.log")
         .NOTES
-            Name           : Write-Message
+            Name           : Write-Exception
             Created by     : Chucky2401
-            Date created   : 18/04/2023
+            Date created   : 22/02/2025
             Modified by    : Chucky2401
-            Date modified  : 18/04/2023
+            Date modified  : 22/02/2025
             Change         : Creation
     #>
 
