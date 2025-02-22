@@ -75,4 +75,11 @@ function Set-CustomAliases {
         }
         Remove-Item -Path $tmp
     }
+
+    #PSReadLine
+    Set-PSReadLineKeyHandler -Chord Ctrl+l -ScriptBlock {
+        [Microsoft.PowerShell.PSConsoleReadLine]::CancelLine()
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert('cls')
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+    }
 }
