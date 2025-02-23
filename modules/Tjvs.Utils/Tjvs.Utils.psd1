@@ -94,7 +94,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            # Tags = @('utility', 'common')
+            Tags = @('utility', 'common', 'aliases', 'functions')
 
             # A URL to the license for this module.
             # LicenseUri = ''
