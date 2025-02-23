@@ -100,7 +100,7 @@
             # LicenseUri = ''
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/Chucky2401/Powershell-Common'
 
             # A URL to an icon representing this module.
             # IconUri = ''
