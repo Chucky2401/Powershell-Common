@@ -45,7 +45,9 @@ function Set-CustomAliases {
 
     #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-    Remove-Alias -Name ls -Scope Global -Force
+    If (Get-Alias -Name ls) {
+      Remove-Alias -Name ls -Scope Global -Force
+    }
 
     function global:ls {
         Update-Eza
