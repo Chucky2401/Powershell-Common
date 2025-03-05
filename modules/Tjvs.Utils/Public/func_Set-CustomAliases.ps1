@@ -45,7 +45,7 @@ function Set-CustomAliases {
 
     #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-    If (Get-Alias -Name ls) {
+    If (Get-Alias -Name ls -ErrorAction SilentlyContinue) {
       Remove-Alias -Name ls -Scope Global -Force
     }
 
